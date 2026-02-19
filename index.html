@@ -361,6 +361,16 @@
   }
   .cal-value.empty { color: var(--muted); font-size: 16px; font-weight: 400; }
   .no-row-msg { font-size: 12px; color: var(--red); font-family: 'JetBrains Mono', monospace; font-style: italic; }
+
+ .rainbow {
+  background: linear-gradient(90deg, #ff0000, #ff8800, #ffff00, #00cc00, #0088ff, #8800ff, #ff0000);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: rainbow 3s linear infinite;
+}
+
 </style>
 </head>
 <body>
@@ -383,7 +393,7 @@
 
   <!-- ── MAIN APP ── -->
   <div class="app-header">
-    <div class="logo">food log.</div>
+    <div class="logo rainbow">food log.</div>
     <button class="reset-btn" id="resetBtn">change URL</button>
   </div>
 
