@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥗</text></svg>">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Food Log</title>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -14,7 +13,7 @@
     --card: #141418;
     --card2: #1c1c22;
     --border: #2c2c36;
-    --accent: #944207;
+    --accent: #7fff6e;
     --accent-dark: #55c447;
     --accent-glow: rgba(127,255,110,0.12);
     --red: #ff6b6b;
@@ -29,25 +28,15 @@
     min-height: 100%;
     background: var(--bg);
     color: var(--text);
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 36px 16px 60px;
-    background-image:
-      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-    background-size: 32px 32px;
+
   }
 
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background: radial-gradient(ellipse 80% 50% at 50% -5%, rgba(127,255,110,0.07) 0%, transparent 65%);
-    pointer-events: none;
-    z-index: 0;
-  }
+
 
   .wrap {
     width: 100%;
@@ -83,7 +72,7 @@
     font-size: 12px;
     color: #aaa;
     line-height: 1.8;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
 
   .setup-steps strong { color: var(--text); }
@@ -94,7 +83,7 @@
     border: 1.5px solid var(--border);
     border-radius: 8px;
     color: var(--text);
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 11px;
     padding: 11px 14px;
     outline: none;
@@ -109,7 +98,7 @@
     color: var(--bg);
     border: none;
     border-radius: 8px;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 700;
     font-size: 14px;
     padding: 12px;
@@ -139,7 +128,7 @@
     border: 1px solid var(--border);
     border-radius: 6px;
     color: var(--muted);
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 10px;
     padding: 5px 10px;
     cursor: pointer;
@@ -192,7 +181,7 @@
   .date-sub {
     font-size: 11px;
     color: var(--muted);
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin-top: 2px;
   }
 
@@ -219,7 +208,7 @@
 
   .current-label {
     font-size: 10px;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--muted);
@@ -243,7 +232,7 @@
     padding: 2px 8px;
     margin: 2px 3px 2px 0;
     font-size: 12px;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     color: #ddd;
   }
 
@@ -268,7 +257,7 @@
     border: none;
     outline: none;
     color: var(--text);
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 14px;
     padding: 16px;
     min-width: 0;
@@ -280,7 +269,7 @@
     background: var(--accent);
     border: none;
     color: var(--bg);
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 700;
     font-size: 15px;
     padding: 16px 22px;
@@ -296,7 +285,7 @@
   .hint {
     font-size: 11px;
     color: var(--muted);
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     text-align: center;
   }
 
@@ -309,7 +298,7 @@
     background: var(--card2);
     border: 1px solid var(--border);
     color: var(--text);
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 12px;
     padding: 10px 22px;
     border-radius: 99px;
@@ -336,6 +325,42 @@
 
   @keyframes spin { to { transform: rotate(360deg); } }
 
+  /* ── QUICK MEAL CHIPS ── */
+  .meals-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .meals-label {
+    font-size: 10px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .meals-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .meal-chip {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    padding: 8px 14px;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s, color 0.15s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .meal-chip:active {
+    border-color: var(--accent);
+    background: var(--card2);
+    color: var(--accent);
+  }
+
   .cal-card {
     background: var(--card);
     border: 1px solid var(--border);
@@ -347,7 +372,7 @@
   }
   .cal-label {
     font-size: 10px;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--muted);
@@ -356,19 +381,11 @@
     font-size: 24px;
     font-weight: 900;
     color: var(--accent);
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     letter-spacing: -1px;
   }
   .cal-value.empty { color: var(--muted); font-size: 16px; font-weight: 400; }
-  .no-row-msg { font-size: 12px; color: var(--red); font-family: 'JetBrains Mono', monospace; font-style: italic; }
-
-.rainbow {
-  background: linear-gradient(75deg, #ff0000, #ff8800 20%, #ffff00, #00cc00 40%, #0088ff 60%, #8800ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
+  .no-row-msg { font-size: 12px; color: var(--red); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-style: italic; }
 </style>
 </head>
 <body>
@@ -391,7 +408,7 @@
 
   <!-- ── MAIN APP ── -->
   <div class="app-header">
-    <div class="logo rainbow">food log.</div>
+    <div class="logo">food log.</div>
     <button class="reset-btn" id="resetBtn">change URL</button>
   </div>
 
@@ -416,11 +433,11 @@
   </div>
 
   <div class="input-group">
-    <input type="text" id="foodInput" placeholder="Peanut butter (220), two slices bread (160), milk (80)" autocomplete="off" spellcheck="false" inputmode="text">
+    <input type="text" id="foodInput" placeholder="Bread (100), turkey (80), OJ (90)" autocomplete="off" spellcheck="false" inputmode="text">
     <button class="log-btn" id="logBtn">Log</button>
   </div>
 
-  <div class="hint">tap Log or press Enter · semicolon-separated by entry</div>
+  <div class="hint">tap Log or press Enter · semicolon-separated per day</div>
 
 </div>
 
@@ -438,6 +455,7 @@
     if (scriptUrl) {
       banner.classList.add('hidden');
       loadCurrentValue();
+      loadMeals();
     } else {
       banner.classList.remove('hidden');
     }
@@ -572,6 +590,39 @@
   document.getElementById('foodInput').addEventListener('keydown', e => {
     if (e.key === 'Enter') { e.preventDefault(); logFood(); }
   });
+
+  // ── Quick meals ────────────────────────────────────────────────────────────
+  async function loadMeals() {
+    if (!scriptUrl) return;
+    try {
+      const res  = await fetch(`${scriptUrl}?action=getMeals`);
+      const data = await res.json();
+      if (data.status !== 'ok' || !data.meals.length) return;
+
+      const wrap  = document.getElementById('mealsWrap');
+      const chips = document.getElementById('mealsChips');
+      chips.innerHTML = '';
+
+      data.meals.forEach(meal => {
+        const btn = document.createElement('button');
+        btn.className = 'meal-chip';
+        btn.textContent = meal;
+        btn.addEventListener('click', () => {
+          const input = document.getElementById('foodInput');
+          const current = input.value.trim();
+          input.value = (current ? current + ', ' : '') + meal + ', ';
+          input.focus();
+          // move cursor to end
+          input.setSelectionRange(input.value.length, input.value.length);
+        });
+        chips.appendChild(btn);
+      });
+
+      wrap.style.display = 'flex';
+    } catch {
+      // silently fail — quick meals are a nice-to-have
+    }
+  }
 
   // ── Init ───────────────────────────────────────────────────────────────
   setDate(new Date());
